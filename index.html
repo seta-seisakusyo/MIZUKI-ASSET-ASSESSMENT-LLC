@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みずきアセットアセスメント合同会社 | クリニック不動産の専門管理会社</title>
+<meta name="description" content="みずきアセットアセスメント合同会社は、クリニック不動産の管理と資産価値の維持を専門とする会社です。医療と不動産をつなぐ資産管理パートナー。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #1a5c3a;
+    --color-primary-light: #2a7a50;
+    --color-primary-pale: #e8f2ec;
+    --color-accent: #b8860b;
+    --color-accent-light: #d4a937;
+    --color-text: #2c2c2c;
+    --color-text-light: #5a5a5a;
+    --color-bg: #fafaf8;
+    --color-white: #ffffff;
+    --color-border: #e0ddd8;
+    --color-section-alt: #f4f3f0;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .logo-main {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+    color: var(--color-text-light);
+    letter-spacing: 0.12em;
+    font-weight: 400;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--color-primary);
+    transition: width 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--color-primary);
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1a4a32 60%, #0f3524 100%);
+    color: var(--color-white);
+    padding: 100px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-light);
+    border: 1px solid rgba(212,169,55,0.4);
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    line-height: 2;
+    opacity: 0.85;
+    max-width: 600px;
+    font-weight: 300;
+  }
+
+  /* ===== SECTION COMMON ===== */
+  section {
+    padding: 80px 24px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .section-title-en {
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+
+  .section-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: 48px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    background: var(--color-white);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .service-card {
+    background: var(--color-bg);
+    padding: 36px 28px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--color-primary-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .service-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .service-list li {
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    background: var(--color-primary-pale);
+    padding: 4px 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== FEATURES ===== */
+  .features {
+    background: var(--color-section-alt);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .feature-item {
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .feature-number {
+    font-size: 0.7rem;
+    color: var(--color-accent);
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .feature-item h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+  }
+
+  .feature-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+  }
+
+  /* ===== COMPANY ===== */
+  .company {
+    background: var(--color-white);
+  }
+
+  .company-table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+  }
+
+  .company-table tr {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .company-table th {
+    text-align: left;
+    padding: 18px 24px 18px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    width: 160px;
+    vertical-align: top;
+    letter-spacing: 0.03em;
+  }
+
+  .company-table td {
+    padding: 18px 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 70px 24px;
+  }
+
+  .contact .section-title {
+    color: var(--color-white);
+  }
+
+  .contact .section-title-en {
+    color: var(--color-accent-light);
+  }
+
+  .contact-info {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-item svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-accent-light);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    transition: opacity 0.3s;
+  }
+
+  .contact-item a:hover {
+    opacity: 0.8;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0f2a1c;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .header-inner {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    nav {
+      gap: 20px;
+    }
+
+    .hero {
+      padding: 60px 24px 50px;
+    }
+
+    .hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .services-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    section {
+      padding: 56px 20px;
+    }
+
+    .company-table th {
+      width: 110px;
+      padding-right: 16px;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-main">みずきアセットアセスメント</div>
+      <div class="logo-sub">MIZUKI ASSET ASSESSMENT LLC</div>
+    </div>
+    <nav>
+      <a href="#services">サービス</a>
+      <a href="#features">特徴</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">クリニック不動産の専門管理会社</div>
+    <h1>医療機関の不動産は、<br>単なる建物ではなく<br>医療を支える重要な資産です。</h1>
+    <p>みずきアセットアセスメント合同会社は、クリニック不動産の管理と資産価値の維持を専門とする会社です。医療施設の特性を理解し、長期的な視点で不動産管理を行います。</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-title">サービス</div>
+    <div class="section-title-en">SERVICES</div>
+    <div class="section-divider"></div>
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>クリニック不動産管理</h3>
+        <p>医療施設に特化した不動産管理を行います。クリニックの運営に支障が出ないよう、安定した管理を提供します。</p>
+        <ul class="service-list">
+          <li>建物管理</li>
+          <li>テナント管理</li>
+          <li>修繕計画</li>
+          <li>維持管理</li>
+          <li>契約管理</li>
+        </ul>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>医療不動産コンサルティング</h3>
+        <p>医療施設の資産価値を分析し、長期的な運用をサポートします。</p>
+        <ul class="service-list">
+          <li>開業物件の検討</li>
+          <li>医療モール分析</li>
+          <li>収益性分析</li>
+          <li>資産評価</li>
+        </ul>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>資産価値評価</h3>
+        <p>不動産の価値を客観的に分析します。</p>
+        <ul class="service-list">
+          <li>医療施設不動産評価</li>
+          <li>事業資産評価</li>
+          <li>相続資産整理</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-inner">
+    <div class="section-title">当社の特徴</div>
+    <div class="section-title-en">FEATURES</div>
+    <div class="section-divider"></div>
+    <div class="features-grid">
+
+      <div class="feature-item fade-in">
+        <div class="feature-number">01</div>
+        <h3>医療不動産専門</h3>
+        <p>医療施設は一般不動産とは異なる特性があります。当社はクリニック不動産に特化した管理を行います。</p>
+      </div>
+
+      <div class="feature-item fade-in">
+        <div class="feature-number">02</div>
+        <h3>長期的資産管理</h3>
+        <p>建物管理だけではなく、資産価値の維持と向上を目指します。</p>
+      </div>
+
+      <div class="feature-item fade-in">
+        <div class="feature-number">03</div>
+        <h3>信頼と継続性</h3>
+        <p>医療機関の重要資産を誠実に管理します。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="section-inner">
+    <div class="section-title">会社概要</div>
+    <div class="section-title-en">COMPANY</div>
+    <div class="section-divider"></div>
+    <table class="company-table fade-in">
+      <tr>
+        <th>会社名</th>
+        <td>みずきアセットアセスメント合同会社<br><span style="font-size:0.8rem;color:var(--color-text-light)">Mizuki Asset Assessment LLC</span></td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>石川県金沢市みずき</td>
+      </tr>
+      <tr>
+        <th>代表社員</th>
+        <td>木村 寛伸</td>
+      </tr>
+      <tr>
+        <th>設立</th>
+        <td>2026年4月1日</td>
+      </tr>
+      <tr>
+        <th>事業内容</th>
+        <td>クリニック不動産の管理<br>医療不動産コンサルティング<br>資産価値評価</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-title">お問い合わせ</div>
+    <div class="section-title-en">CONTACT</div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@mizuki-clinic.jp">info@mizuki-clinic.jp</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:076-255-0337">076-255-0337</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 みずきアセットアセスメント合同会社 All Rights Reserved.</p>
+</footer>
+
+<!-- SCROLL ANIMATION -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+      observer.observe(el);
+    });
+  });
+</script>
+
+</body>
+</html>
