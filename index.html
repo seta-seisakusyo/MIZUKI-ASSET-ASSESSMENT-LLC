@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>みずきアセットアセスメント合同会社 | クリニック不動産の専門管理会社</title>
 <meta name="description" content="みずきアセットアセスメント合同会社は、クリニック不動産の管理と資産価値の維持を専門とする会社です。医療と不動産をつなぐ資産管理パートナー。">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
@@ -63,6 +65,19 @@
   }
 
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .logo-text {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -493,8 +508,11 @@
 <header>
   <div class="header-inner">
     <div class="logo">
-      <div class="logo-main">みずきアセットアセスメント</div>
-      <div class="logo-sub">MIZUKI ASSET ASSESSMENT LLC</div>
+      <img src="icon.png" alt="みずきアセットアセスメント" class="logo-icon">
+      <div class="logo-text">
+        <div class="logo-main">みずきアセットアセスメント</div>
+        <div class="logo-sub">MIZUKI ASSET ASSESSMENT LLC</div>
+      </div>
     </div>
     <nav>
       <a href="#services">サービス</a>
