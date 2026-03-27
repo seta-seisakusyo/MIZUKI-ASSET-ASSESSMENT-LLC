@@ -17,10 +17,14 @@ https://mizuki-clinic.online
 ## ファイル構成
 
 ```
-├── index.html     # メインページ（HTML・CSS・JSすべて含む）
+├── index.html     # メインページ（HTML・CSSを含む）
+├── 404.html       # 404エラーページ
+├── main.js        # JavaScript（アニメーション・メニュー）
 ├── icon.png       # ロゴ画像 / Apple Touch Icon
 ├── favicon.ico    # ファビコン
 ├── CNAME          # GitHub Pages カスタムドメイン設定
+├── robots.txt     # クローラー制御
+├── sitemap.xml    # サイトマップ
 └── README.md      # このファイル
 ```
 
@@ -37,9 +41,12 @@ https://mizuki-clinic.online
 
 ## 機能
 
-- レスポンシブデザイン（モバイル対応）
+- レスポンシブデザイン（モバイル対応・ハンバーガーメニュー）
 - スクロール連動フェードインアニメーション（Intersection Observer API）
 - スムーススクロールナビゲーション
+- SEO対応（OGP / Twitter Card / JSON-LD構造化データ / canonical / sitemap）
+- アクセシビリティ対応（スキップリンク / ARIA属性 / セマンティックHTML）
+- セキュリティ対策（CSP / Referrer-Policy）
 
 ## ローカルでの確認
 

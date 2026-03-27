@@ -3,13 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- セキュリティヘッダ -->
+<!-- NOTE: frame-ancestors / X-Frame-Options はHTTPヘッダでのみ有効。CDN（Cloudflare等）導入時に付与すること -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self';">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <title>みずきアセットアセスメント合同会社 | クリニック不動産の専門管理会社</title>
 <meta name="description" content="みずきアセットアセスメント合同会社は、クリニック不動産の管理と資産価値の維持を専門とする会社です。医療と不動産をつなぐ資産管理パートナー。">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="icon.png">
+<link rel="canonical" href="https://mizuki-clinic.online/">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="みずきアセットアセスメント合同会社">
+<meta property="og:title" content="みずきアセットアセスメント合同会社 | クリニック不動産の専門管理会社">
+<meta property="og:description" content="クリニック不動産の管理と資産価値の維持を専門とする会社です。医療と不動産をつなぐ資産管理パートナー。">
+<meta property="og:url" content="https://mizuki-clinic.online/">
+<meta property="og:image" content="https://mizuki-clinic.online/icon.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="みずきアセットアセスメント合同会社 | クリニック不動産の専門管理会社">
+<meta name="twitter:description" content="クリニック不動産の管理と資産価値の維持を専門とする会社です。医療と不動産をつなぐ資産管理パートナー。">
+<meta name="twitter:image" content="https://mizuki-clinic.online/icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSON-LD 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "みずきアセットアセスメント合同会社",
+  "alternateName": "Mizuki Asset Assessment LLC",
+  "url": "https://mizuki-clinic.online",
+  "image": "https://mizuki-clinic.online/icon.png",
+  "telephone": "076-255-0337",
+  "email": "info@mizuki-clinic.jp",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "金沢市",
+    "addressRegion": "石川県",
+    "addressCountry": "JP"
+  },
+  "description": "クリニック不動産の管理と資産価値の維持を専門とする会社です。",
+  "foundingDate": "2026-04-01"
+}
+</script>
+
 <style>
   :root {
     --color-primary: #1a5c3a;
@@ -44,6 +90,23 @@
     background: var(--color-bg);
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== SKIP LINK ===== */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    z-index: 200;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 0;
   }
 
   /* ===== HEADER ===== */
@@ -99,6 +162,37 @@
     font-weight: 400;
   }
 
+  /* ===== HAMBURGER MENU ===== */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   nav {
     display: flex;
     gap: 28px;
@@ -112,12 +206,13 @@
     letter-spacing: 0.05em;
     transition: color 0.3s;
     position: relative;
+    padding: 8px 0;
   }
 
   nav a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 4px;
     left: 0;
     width: 0;
     height: 1.5px;
@@ -196,7 +291,7 @@
   .hero p {
     font-size: 0.95rem;
     line-height: 2;
-    opacity: 0.85;
+    opacity: 0.9;
     max-width: 600px;
     font-weight: 300;
   }
@@ -384,6 +479,11 @@
     line-height: 1.7;
   }
 
+  .company-sub {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
   /* ===== CONTACT ===== */
   .contact {
     background: var(--color-primary);
@@ -440,7 +540,7 @@
   /* ===== FOOTER ===== */
   footer {
     background: #0f2a1c;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.7);
     text-align: center;
     padding: 28px 24px;
     font-size: 0.72rem;
@@ -449,14 +549,43 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
-    .header-inner {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
+    .menu-toggle {
+      display: flex;
     }
 
     nav {
-      gap: 20px;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-white);
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    nav.open {
+      display: flex;
+    }
+
+    nav a {
+      padding: 14px 24px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    nav a:last-child {
+      border-bottom: none;
+    }
+
+    nav a::after {
+      display: none;
+    }
+
+    .header-inner {
+      position: relative;
     }
 
     .hero {
@@ -465,6 +594,10 @@
 
     .hero h1 {
       font-size: 1.5rem;
+    }
+
+    .hero h1 br {
+      display: none;
     }
 
     .services-grid,
@@ -501,20 +634,39 @@
     transform: translateY(0);
   }
 </style>
+
+<!-- JS無効時のフォールバック -->
+<noscript>
+<style>
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+</style>
+</noscript>
+
 </head>
 <body>
+
+<!-- スキップリンク -->
+<a href="#main-content" class="skip-link">メインコンテンツへ</a>
 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="logo">
-      <img src="icon.png" alt="みずきアセットアセスメント" class="logo-icon">
+      <img src="icon.png" alt="みずきアセットアセスメント" class="logo-icon" width="40" height="40">
       <div class="logo-text">
         <div class="logo-main">みずきアセットアセスメント</div>
-        <div class="logo-sub">MIZUKI ASSET ASSESSMENT LLC</div>
+        <div class="logo-sub" lang="en">MIZUKI ASSET ASSESSMENT LLC</div>
       </div>
     </div>
-    <nav>
+    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="main-nav" aria-label="メインナビゲーション">
       <a href="#services">サービス</a>
       <a href="#features">特徴</a>
       <a href="#company">会社概要</a>
@@ -523,26 +675,28 @@
   </div>
 </header>
 
+<main id="main-content">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" aria-labelledby="hero-heading">
   <div class="hero-inner">
     <div class="hero-label">クリニック不動産の専門管理会社</div>
-    <h1>医療機関の不動産は、<br>単なる建物ではなく<br>医療を支える重要な資産です。</h1>
+    <h1 id="hero-heading">医療機関の不動産は、<br>単なる建物ではなく<br>医療を支える重要な資産です。</h1>
     <p>みずきアセットアセスメント合同会社は、クリニック不動産の管理と資産価値の維持を専門とする会社です。医療施設の特性を理解し、長期的な視点で不動産管理を行います。</p>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
+<section class="services" id="services" aria-labelledby="services-heading">
   <div class="section-inner">
-    <div class="section-title">サービス</div>
-    <div class="section-title-en">SERVICES</div>
-    <div class="section-divider"></div>
+    <h2 class="section-title" id="services-heading">サービス</h2>
+    <p class="section-title-en" lang="en">SERVICES</p>
+    <div class="section-divider" aria-hidden="true"></div>
     <div class="services-grid">
 
       <div class="service-card fade-in">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h3>クリニック不動産管理</h3>
         <p>医療施設に特化した不動産管理を行います。クリニックの運営に支障が出ないよう、安定した管理を提供します。</p>
@@ -557,7 +711,7 @@
 
       <div class="service-card fade-in">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3>医療不動産コンサルティング</h3>
         <p>医療施設の資産価値を分析し、長期的な運用をサポートします。</p>
@@ -571,7 +725,7 @@
 
       <div class="service-card fade-in">
         <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
         <h3>資産価値評価</h3>
         <p>不動産の価値を客観的に分析します。</p>
@@ -587,27 +741,27 @@
 </section>
 
 <!-- FEATURES -->
-<section class="features" id="features">
+<section class="features" id="features" aria-labelledby="features-heading">
   <div class="section-inner">
-    <div class="section-title">当社の特徴</div>
-    <div class="section-title-en">FEATURES</div>
-    <div class="section-divider"></div>
+    <h2 class="section-title" id="features-heading">当社の特徴</h2>
+    <p class="section-title-en" lang="en">FEATURES</p>
+    <div class="section-divider" aria-hidden="true"></div>
     <div class="features-grid">
 
       <div class="feature-item fade-in">
-        <div class="feature-number">01</div>
+        <div class="feature-number" lang="en">01</div>
         <h3>医療不動産専門</h3>
         <p>医療施設は一般不動産とは異なる特性があります。当社はクリニック不動産に特化した管理を行います。</p>
       </div>
 
       <div class="feature-item fade-in">
-        <div class="feature-number">02</div>
+        <div class="feature-number" lang="en">02</div>
         <h3>長期的資産管理</h3>
         <p>建物管理だけではなく、資産価値の維持と向上を目指します。</p>
       </div>
 
       <div class="feature-item fade-in">
-        <div class="feature-number">03</div>
+        <div class="feature-number" lang="en">03</div>
         <h3>信頼と継続性</h3>
         <p>医療機関の重要資産を誠実に管理します。</p>
       </div>
@@ -617,75 +771,65 @@
 </section>
 
 <!-- COMPANY -->
-<section class="company" id="company">
+<section class="company" id="company" aria-labelledby="company-heading">
   <div class="section-inner">
-    <div class="section-title">会社概要</div>
-    <div class="section-title-en">COMPANY</div>
-    <div class="section-divider"></div>
+    <h2 class="section-title" id="company-heading">会社概要</h2>
+    <p class="section-title-en" lang="en">COMPANY</p>
+    <div class="section-divider" aria-hidden="true"></div>
     <table class="company-table fade-in">
+      <tbody>
       <tr>
-        <th>会社名</th>
-        <td>みずきアセットアセスメント合同会社<br><span style="font-size:0.8rem;color:var(--color-text-light)">Mizuki Asset Assessment LLC</span></td>
+        <th scope="row">会社名</th>
+        <td>みずきアセットアセスメント合同会社<br><span class="company-sub" lang="en">Mizuki Asset Assessment LLC</span></td>
       </tr>
       <tr>
-        <th>所在地</th>
+        <th scope="row">所在地</th>
         <td>石川県金沢市みずき</td>
       </tr>
       <tr>
-        <th>代表社員</th>
+        <th scope="row">代表社員</th>
         <td>木村 寛伸</td>
       </tr>
       <tr>
-        <th>設立</th>
+        <th scope="row">設立</th>
         <td>2026年4月1日</td>
       </tr>
       <tr>
-        <th>事業内容</th>
+        <th scope="row">事業内容</th>
         <td>クリニック不動産の管理<br>医療不動産コンサルティング<br>資産価値評価</td>
       </tr>
+      </tbody>
     </table>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact" id="contact" aria-labelledby="contact-heading">
   <div class="section-inner">
-    <div class="section-title">お問い合わせ</div>
-    <div class="section-title-en">CONTACT</div>
+    <h2 class="section-title" id="contact-heading">お問い合わせ</h2>
+    <p class="section-title-en" lang="en">CONTACT</p>
+    <div class="section-divider" aria-hidden="true" style="margin: 0 auto 32px;"></div>
     <div class="contact-info">
       <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <a href="mailto:info@mizuki-clinic.jp">info@mizuki-clinic.jp</a>
       </div>
       <div class="contact-item">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z"/></svg>
         <a href="tel:076-255-0337">076-255-0337</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 みずきアセットアセスメント合同会社 All Rights Reserved.</p>
 </footer>
 
-<!-- SCROLL ANIMATION -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      observer.observe(el);
-    });
-  });
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
